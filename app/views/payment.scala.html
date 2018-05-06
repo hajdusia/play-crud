@@ -1,0 +1,21 @@
+@(payment: Form[CreatePaymentForm])(implicit request: MessagesRequestHeader)
+
+@import helper._
+
+@request.flash.get("success").map { key =>
+   @request.messages(key)
+}
+
+@main("Welcome to Ebiznes") {
+  @form(routes.PaymentController.addPayment()) {
+		@inputText(payment("basket"))
+	  	@inputText(payment("value"))
+	  	@inputText(payment("date"))
+
+		@CSRF.formField
+
+		<div class="buttons">
+			<input type="submit" value="Add payment"/>
+		</div>
+	}
+}

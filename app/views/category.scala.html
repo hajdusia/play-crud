@@ -1,0 +1,19 @@
+@(category: Form[CreateCategoryForm])(implicit request: MessagesRequestHeader)
+
+@import helper._
+
+@request.flash.get("success").map { key =>
+   @request.messages(key)
+}
+
+@main("Welcome to Ebiznes") {
+  @form(routes.CategoryController.addCategory()) {
+		@inputText(category("name"))
+
+		@CSRF.formField
+
+		<div class="buttons">
+			<input type="submit" value="Add category"/>
+		</div>
+	}
+}

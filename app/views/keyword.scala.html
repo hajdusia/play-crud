@@ -1,0 +1,19 @@
+@(keyword: Form[CreateKeywordForm])(implicit request: MessagesRequestHeader)
+
+@import helper._
+
+@request.flash.get("success").map { key =>
+   @request.messages(key)
+}
+
+@main("Welcome to Ebiznes") {
+  @form(routes.KeywordController.addKeyword()) {
+		@inputText(keyword("keyword"))
+
+		@CSRF.formField
+
+		<div class="buttons">
+			<input type="submit" value="Add keyword"/>
+		</div>
+	}
+}

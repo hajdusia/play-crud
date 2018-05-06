@@ -1,0 +1,32 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.ProductController.index
+POST    /addproduct                 controllers.ProductController.addProduct
+GET     /products                   controllers.ProductController.getProducts
+GET     /categories                 controllers.CategoryController.getCategories
+GET     /category                   controllers.CategoryController.index
+POST    /addcategory                controllers.CategoryController.addCategory
+GET     /basketids                 controllers.BasketIdsController.getBasketIds
+GET     /basketid                   controllers.BasketIdsController.index
+POST    /addbasketid                controllers.BasketIdsController.addBasketId
+GET     /basketproducts          controllers.BasketProductController.getBasketProducts
+GET     /basketproduct              controllers.BasketProductController.index
+POST    /addbasketproduct           controllers.BasketProductController.addBasketProduct
+GET     /reviews                   controllers.ReviewController.getReviews
+GET     /review                    controllers.ReviewController.index
+POST    /addreview                 controllers.ReviewController.addReview
+GET     /payments                   controllers.PaymentController.getPayments
+GET     /payment                    controllers.PaymentController.index
+POST    /addpayment                 controllers.PaymentController.addPayment
+GET     /keywords                   controllers.KeywordController.getKeywords
+GET     /keyword                    controllers.KeywordController.index
+POST    /addkeyword                 controllers.KeywordController.addKeyword
+GET     /orders                     controllers.OrderController.getOrders
+GET     /order                      controllers.OrderController.index
+POST    /addorder                   controllers.OrderController.addOrder
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
